@@ -29,7 +29,8 @@ We use this repo for the nft soulbound contract
 the contract is deployed on sepolia at the following address: 
 ## Sepolia Address
 
-**0x125bC6b7Df7a909e55b80B533E5Bdd12Dc320253**
+[**0x125bC6b7Df7a909e55b80B533E5Bdd12Dc320253**](https://sepolia.etherscan.io/address/0x125bC6b7Df7a909e55b80B533E5Bdd12Dc320253)
+
 
 ## DApp Implementation
 
