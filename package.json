@@ -1,7 +1,19 @@
 {
   "name": "hardhat-project",
+  "scripts": {
+    "compile": "npx hardhat clean && npx hardhat compile && npx hardhat --config hardhat.package.config.ts compile --force",
+    "deploy-all:sepolia": "npx hardhat run ./scripts/deploy_all.ts --network sepolia",
+    "deploy-all:amoy": "npx hardhat run ./scripts/deploy_all.ts --network polygon_amoy"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "4.8.2",
+    "@openzeppelin/contracts-upgradeable": "4.8.2",
+    "hardhat": "^2.22.3"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.4"
+    "hardhat": "^2.22.4",
+    "dotenv": "^16.0.3",
+    "ethers": "^5.7.2"
   }
 }

@@ -3,9 +3,9 @@
 pragma solidity ^0.8.0;
 
 // Importing from GitHub repository for OpenZeppelin
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.7/contracts/token/ERC721/ERC721.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.7/contracts/access/Ownable.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v4.7/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Strings.sol";
 
 contract GamerhoodBadge is ERC721, Ownable {
     using Strings for uint256;
@@ -58,8 +58,8 @@ contract GamerhoodBadge is ERC721, Ownable {
     }
 
     // Override of the transfer function to enforce soulbound status
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal override {
+    function _update(address from, address to, uint256 tokenId) internal override(ERC721){
         require(!_soulboundTokens[tokenId] || from == address(0), "Token is soulbound");
-        super._beforeTokenTransfer(from, to, tokenId);
+        super._update(from, to, tokenId);
     }
 }
