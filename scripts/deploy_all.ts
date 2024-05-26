@@ -1,6 +1,5 @@
 import { ethers } from "hardhat";
 import { SignerWithAddress } from "@nomiclabs/hardhat-ethers/signers";
-import { Ancillary, Seat, Segment } from "../typechain-types";
 import { Signer } from "ethers";
 
 // NB: This script deploys a new contract and also a new proxy, so the storage will be reset.
