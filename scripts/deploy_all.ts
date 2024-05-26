@@ -12,7 +12,7 @@ async function main() {
   // DEPLOY Proof of Gamer hood
 
   const GamerHoodFatcory = await ethers.getContractFactory(
-    "gamerhoodNftSoulbound",
+    "GamerhoodBadge",
     signer
   );
   const gamerHoodContract = await GamerHoodFatcory.deploy();

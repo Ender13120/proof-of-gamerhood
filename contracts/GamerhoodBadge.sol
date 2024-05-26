@@ -47,8 +47,6 @@ contract GamerhoodBadge is ERC721, Ownable {
         return "https://api.example.com/token/";
     }
 
-
-
     // Refresh the expiry time for a token
     function refreshExpiry(uint256 tokenId) public onlyOwner {
         require(_exists(tokenId), "Token does not exist");
@@ -58,8 +56,8 @@ contract GamerhoodBadge is ERC721, Ownable {
     }
 
     // Override of the transfer function to enforce soulbound status
-    function _update(address from, address to, uint256 tokenId) internal override(ERC721){
+    function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize) internal override {
         require(!_soulboundTokens[tokenId] || from == address(0), "Token is soulbound");
-        super._update(from, to, tokenId);
+        super._beforeTokenTransfer(from, to, tokenId, batchSize);
     }
 }
