@@ -60,4 +60,21 @@ contract GamerhoodBadge is ERC721, Ownable {
         require(!_soulboundTokens[tokenId] || from == address(0), "Token is soulbound");
         super._beforeTokenTransfer(from, to, tokenId, batchSize);
     }
+
+    function getTokenURI(uint256 tokenId) public returns (string memory){
+    bytes memory dataURI = abi.encodePacked(
+        '{',
+            '"name": "Gamer Tag #', tokenId.toString(), '",',
+            '"description": "You are a certified Gamer!",',
+            '"image": "', 'https://ibb.co/cCpRx9W', '"',
+        '}'
+    );
+
+    
+    return string(
+        abi.encodePacked(
+            "data:application/json;base64,",
+            Base64.encode(dataURI)
+        )
+    );
 }
